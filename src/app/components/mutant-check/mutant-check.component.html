@@ -1,0 +1,29 @@
+<div class="max-w-md mx-auto mt-10 p-6 bg-white shadow-lg rounded-xl">
+    <h2 class="text-2xl font-bold text-center mb-4 text-gray-700">
+        Detector de Mutantes
+    </h2>
+
+    <p class="text-gray-600 mb-4">Ingrese el ADN (una fila por línea):</p>
+
+    <textarea [(ngModel)]="adnInput" rows="8"
+        class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:outline-none font-mono text-sm"
+        placeholder="
+        ATGCGA
+        CAGTGC
+        TTATGT...">
+        </textarea>
+
+    <button (click)="validateADN()"
+        class="w-full mt-4 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-2 rounded-lg transition">
+        Validar
+    </button>
+
+    <div *ngIf="result" class="mt-5 text-center">
+        <span class="inline-block px-4 py-2 rounded-full text-white font-semibold text-sm" [ngClass]="{
+        'bg-green-600': result === 'Es mutante',
+        'bg-red-600': result === 'No es mutante'
+      }">
+            {{ result }}
+        </span>
+    </div>
+</div>
